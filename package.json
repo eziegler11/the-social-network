@@ -1,0 +1,27 @@
+{
+	"name": "the-social-network",
+	"version": "1.0.0",
+	"description": "A social network created using MongoDB.",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node server.js",
+		"watch": "nodemon server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/eziegler11/the-social-network.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/eziegler11/the-social-network/issues"
+	},
+	"homepage": "https://github.com/eziegler11/the-social-network#readme",
+	"dependencies": {
+		"express": "^4.18.2",
+		"mongoose": "^7.1.0",
+		"nodemon": "^2.0.22"
+	}
+}
