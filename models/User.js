@@ -33,7 +33,7 @@ const userSchema = new Schema({
     // need to add virtual
 });
 
-// Initialize our User model
+// Initialize User model
 const User = model('user', userSchema);
 
 module.exports = User;
