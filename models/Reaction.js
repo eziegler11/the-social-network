@@ -19,7 +19,7 @@ const reactionSchema = new Schema({
 		default: Date.now,
 		get: function (timestamp) {
 			return new Date(timestamp).toLocaleDateString('en-US', {
-				weekday: 'long',
+				weekday: 'short',
 				year: 'numeric',
 				month: 'long',
 				day: 'numeric',
