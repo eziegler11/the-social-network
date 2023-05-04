@@ -50,9 +50,9 @@ module.exports = {
 				{ runValidators: true, new: true }
 			);
 
-			// if (!users) {
-			// 	return res.status(404).json({ message: 'No user with that ID' });
-			// }
+			if (!users) {
+				return res.status(404).json({ message: 'No user with that ID' });
+			}
 
 			res.json(users);
 		} catch (err) {
@@ -63,13 +63,57 @@ module.exports = {
 	// Delete A Single User
 	async deleteUser(req, res) {
 		try {
-			const users = await User.findOneAndDelete({ _id: req.params.userId });
+			const users = await User.findOneAndRemove({
+				_id: req.params.userId,
+			});
 
-			// if (!users) {
-			// 	return res.status(404).json({ message: 'No user with that ID' });
-			// }
+			if (!users) {
+				return res.status(404).json({ message: 'No user with this ID!' });
+			}
 
-			res.json(users);
+			res.json({ message: 'User successfully deleted!' });
+		} catch (err) {
+			res.status(500).json(err);
+		}
+	},
+
+	// Add Friend
+	async addFriend(req, res) {
+		try {
+			const friend = await User.findOneAndUpdate(
+				{ _id: req.params.userId },
+				{ $push: { friends: req.params.friendId } },
+				{ new: true }
+			);
+
+			if (!friend) {
+				return res
+					.status(404)
+					.json({ message: 'No user found with this ID!' });
+			}
+
+			res.json(friend);
+		} catch (err) {
+			res.status(500).json(err);
+		}
+	},
+
+	// Remove Friend
+	async deleteFriend(req, res) {
+		try {
+			const friend = await User.findOneAndUpdate(
+				{ _id: req.params.userId },
+				{ $pull: { friends: req.params.friendId } },
+				{ new: true }
+			);
+
+			if (!friend) {
+				return res
+					.status(404)
+					.json({ message: 'No user with this ID!' });
+			}
+
+			res.json(friend);
 		} catch (err) {
 			res.status(500).json(err);
 		}
