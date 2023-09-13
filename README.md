@@ -3,8 +3,6 @@ A social network created using MongoDB + Mongoose. Features users, friends, thou
 
 ## Description
 
-I was motivated to create this project as a means to learn more about Sequelize and Express.JS within a real life application. I built this app in order to better understand the data flow and the principles of CRUD. From there, I utilized Sequelize to perform queries of my data, eliminating the need for MySQL queries myself. Diving into Sequelize really saved me a lot of time and made working with the database very seamless. 
-
 I was motivated to create this project to gain more insight and knowledge on using MongoDB to store data and Mongoose to interact with that data. I built this app in order to simulate a social network of user data and to see how that data can interact with each other. I really enjoyed this working on this application, creating the structure of the directory, building the models and into the routes + controllers. It was great to see it all come together and seeing the data pull into different arrays.
 
 ## Installation
